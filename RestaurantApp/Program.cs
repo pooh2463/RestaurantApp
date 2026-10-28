@@ -1,8 +1,6 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestaurantApp
 {
@@ -12,21 +10,45 @@ namespace RestaurantApp
         {
             Console.WriteLine("Hello SIT.1/1");
             Console.WriteLine("Week 2");
-        }
-    }
-    public class Restaurant
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public double Rating { get; set; }
+            Console.WriteLine();
 
-        public Restaurant(int id, string name, string type, double rating)
+            List<Restaurant> Restaurants = new List<Restaurant>
+            {
+                new Restaurant(1, "Quanjude Roast Duck", "Beijing Cuisine", 4.5),
+                new Restaurant(2, "Donglaishun Hot Pot", "Hot Pot", 4.6),
+                new Restaurant(3, "Din Tai Fung", "Taiwanese Cuisine", 4.7)
+            };
+
+            Console.WriteLine("List of All Restaurants");
+            Console.WriteLine("------------------------------------------------------------");
+            Console.WriteLine("{0,-5} {1,-25} {2,-22} {3,-6}",
+                "ID", "Name", "Type", "Rating");
+            Console.WriteLine("------------------------------------------------------------");
+
+            foreach (Restaurant restaurant in Restaurants)
+            {
+                Console.WriteLine("{0,-5} {1,-25} {2,-22} {3,-6:F1}",
+                    restaurant.Id,
+                    restaurant.Name,
+                    restaurant.Type,
+                    restaurant.Rating);
+            }
+        }
+
+        public class Restaurant
         {
-            Id = id;
-            Name = name;
-            Type = type;
-            Rating = rating;
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public string Type { get; set; }
+            public double Rating { get; set; }
+
+            public Restaurant(int id, string name, string type, double rating)
+            {
+                Id = id;
+                Name = name;
+                Type = type;
+                Rating = rating;
+            }
         }
     }
 }
