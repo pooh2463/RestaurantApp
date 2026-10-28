@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RestaurantApp
 {
@@ -33,8 +34,13 @@ namespace RestaurantApp
                     restaurant.Id,
                     restaurant.Name,
                     restaurant.Type,
-                    restaurant.Rating);
+                    restaurant.Rating
+                    );
             }
+            Console.WriteLine("------------------------------------------------------------");
+            Console.WriteLine("Total Restaurants: {0}", Restaurants.Count);
+            double averageRating = Restaurants.Average(r => r.Rating);
+            Console.WriteLine("Average Rating: {0:F2}", averageRating);
         }
 
         public class Restaurant
